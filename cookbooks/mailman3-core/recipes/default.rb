@@ -20,3 +20,20 @@ include_recipe 'build-essential'
   }.each do |pkg|
     package pkg
   end
+
+  directory '/opt/mailman' do
+    owner 'root'
+    group 'root'
+    mode  '0755'
+  end
+
+  bash 'Install mailman core' do
+    cwd '/opt/mailman'
+    code <<-EOH
+      python3 -m venv venv
+      source venv/bin/activate
+      pip install mailman
+      touch /etc/mailman.cfg
+      mailman info
+    EOH
+  end
