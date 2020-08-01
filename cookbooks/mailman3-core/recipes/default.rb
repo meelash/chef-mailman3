@@ -11,9 +11,12 @@ include_recipe 'build-essential'
   bzr
   postfix
   ssl-cert
+  lynx
+  python3-dev
   python3-venv
   python3-pip
   python3-django
+  ruby-sass
   }.each do |pkg|
     package pkg
   end
