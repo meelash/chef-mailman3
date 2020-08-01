@@ -35,5 +35,8 @@ include_recipe 'build-essential'
       pip install mailman
       touch /etc/mailman.cfg
       mailman info
+      pip install postorius
+      pip install hyperkitty
+      pip install mailman-hyperkitty
     EOH
   end
